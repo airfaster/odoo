@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Heredar de la vista padre de transferencias del modulo de stock y agregarle el campo que se a creado   -->
+    <record id="view_picking_form_custom" model="ir.ui.view"> <!-- view_picking_form_custom se define el id de la vista -->
+        <field name="name">stock.picking.form.inherited</field><!-- stock.picking.form.inherited se define el nombre de la vista -->
+        <field name="model">stock.picking</field> <!-- stock.pickingse define el modelo al que pertenece la vista de la vista -->
+        <field name="inherit_id" ref="stock.view_picking_form"/> <!-- stock.view_picking_form se define de que vista se hereda -->
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="after"> <!-- definir ubicacion del elemento   -->
+                <field name="receptor_id"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
+
